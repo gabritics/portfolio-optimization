@@ -185,7 +185,7 @@ We applied the Markowitz optimization to our portfolio of stocks using the histo
 
 We find that the returns of the MVO portfolio are nearly 3\% higher than those of the SPX index (the market). In exchange for these higher returns, the volatility of the MVO portfolio soars to 26.01\% of annualized volatility, compared to 18.6\% for the market. This tradeoff seems to be justified as the Sharpe ratio only slightly drops from 0.48 for the market to 0.46 for the MVO. This means we have successfully built an alternative investment to the market with potentially higher returns that compensate the increased risk. This is suitable for less risk adverse investors.
 
-![alt text](eff_front.JPG)
+![alt text](eff_front.png)
 
 ```ruby
 
