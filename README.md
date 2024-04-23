@@ -199,5 +199,5 @@ $\textbf{MVO vs. Market}$
 
 ##Summary
 
-![alt text](table.png)
+![alt text](table.JPG)
 
