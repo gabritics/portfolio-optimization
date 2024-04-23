@@ -187,6 +187,11 @@ We find that the returns of the MVO portfolio are nearly 3\% higher than those o
 
 ![alt text](eff_front.png)
 
+$\textbf{MVO vs. Market}$
+
+![alt text](SlidingMVOvsMarket.png)
+
+
 ```ruby
 
 ```
