@@ -169,7 +169,7 @@ The Markowitz optimization, also known as mean variance optimization, is a portf
 
 The Markowitz optimization problem can be formulated as follows:
 
-![alt text](optpro.png)
+![alt text](optpro.JPG)
 
 
 
