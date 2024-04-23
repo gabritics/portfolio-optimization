@@ -41,11 +41,11 @@ $\mathbb{1}$: Identity Matrix
 ![alt text](EW.png)
 | Performance Measure | Value (%) |
 | ------------- | ------------- |
-| Annualized Return | 6.3  |
-| Annualized Volatility | 18.1  |
-| Max Drawdown | -58.4  |
-| Max Drawdown | -1.65  |
-| Sharpe Ratio | 0.35  |
+| Annualized Return | 6.45  |
+| Annualized Volatility | 21.56|
+| Max Drawdown | -69.28  |
+| Max Drawdown | -1.98  |
+| Sharpe Ratio | 0.3  |
 
 ## Equally Risk Based portfolio (ERB)
 The $\Lambda$ matrix has been calculated with the whole price dataset. The weights thus obtained have then been tested on the whole historical data.
@@ -55,6 +55,15 @@ The $\Lambda^{-1}$ matrix is of diagonal structure. For each stock, the inverse 
 $\Large w_{ERB}=\frac{\Lambda^{-1}\textbf{1}}{\textbf{1}^t \Lambda^{-1} \textbf{1}}$
 
 ![alt text](ERB.png)
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 6.32  |
+| Annualized Volatility | 18.06|
+| Max Drawdown | -58.40  |
+| Max Drawdown | -1.65  |
+| Sharpe Ratio | 0.35  |
+
 
 ```ruby
 
