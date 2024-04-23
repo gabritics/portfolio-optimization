@@ -16,10 +16,10 @@ process: get Market weights and corresponding stockprices for the benchmark-> do
 ### Replicated market
 ![alt text](SPX.png)
 
-### Lehman brothers and Covid crisis as top two Max drawdowns
+### Lehman brothers and covid crisis as top two max drawdowns
 ![alt text](MaxDrawDown.png)
 
-### Replicated market Key Risk Indicators 
+### Replicated market key risk indicators 
 | Performance Measure | Value (%) |
 | ------------- | ------------- |
 | Annualized Return | 9.0  |
@@ -28,11 +28,11 @@ process: get Market weights and corresponding stockprices for the benchmark-> do
 | Max Drawdown | -1.7  |
 | Sharpe Ratio | 0.48  |
 
-### Risk Based Strategies
+### Risk Based strategies
 ## Equally Weighted Portfolio (EW)
 This portfolio is calculated every trading day. It will assign the same weight to all the stocks currently available that day. It is the most rudimentary of the risk-based approaches. It aims to spread the risk out among as many stocks as possible without going into complex and costly variance analysis.
 
-$w_{EW}= \frac{\mathbb{1} \textbf{1}}{\textbf{1}^t \mathbb{1} \textbf{1}}$
+$\Large w_{EW}= \frac{\mathbb{1} \textbf{1}}{\textbf{1}^t \mathbb{1} \textbf{1}}$
 
 ```ruby
 
