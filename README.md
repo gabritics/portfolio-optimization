@@ -192,6 +192,7 @@ $\textbf{MVO vs. Market}$
 ![alt text](SlidingMVOvsMarket.png)
 
 
+
 ```ruby
 
 ```
