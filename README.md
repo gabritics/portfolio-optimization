@@ -197,7 +197,7 @@ $\textbf{MVO vs. Market}$
 
 ![alt text](SlidingMVOvsMarket.png)
 
-##Summary
+## Summary
 
 ![alt text](table.JPG)
 
