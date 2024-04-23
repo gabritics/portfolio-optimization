@@ -14,6 +14,7 @@ We worked with a Colab Python Jupyter Notebook.
 process: get Market weights and corresponding stockprices for the benchmark-> do the data cleaning(Find out how to handle with NaN's etc) -> caculate the returns, stats and replicate the graph, to validate that everything works -> code the different strategies (e.g. Equally weighted) and compare with the benchmark-> Backtest the different strategies by defininig a sliding window over time -> being creative from here, play with the numbers, the sliding windows, the volatility we accept...
 
 ### Replicated American market
+![alt text](SPX.png)
 
 
 
