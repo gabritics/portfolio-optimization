@@ -33,6 +33,7 @@ process: get Market weights and corresponding stockprices for the benchmark-> do
 This portfolio is calculated every trading day. It will assign the same weight to all the stocks currently available that day. It is the most rudimentary of the risk-based approaches. It aims to spread the risk out among as many stocks as possible without going into complex and costly variance analysis.
 
 $\Large w_{EW}= \frac{\mathbb{1} \textbf{1}}{\textbf{1}^t \mathbb{1} \textbf{1}}$
+
 ![alt text](EW.png)
 | Performance Measure | Value (%) |
 | ------------- | ------------- |
