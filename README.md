@@ -34,7 +34,8 @@ This portfolio is calculated every trading day. It will assign the same weight t
 
 $\Large w_{EW}= \frac{\mathbb{1} \textbf{1}}{\textbf{1}^t \mathbb{1} \textbf{1}}$
 
-$\textbf{1}$ is a vector of ones(with the stocks available at the date of optimization)
+$\textbf{1}$: is a vector of ones(with the stocks available at the date of optimization)
+$\mathbb{1}$: Identity Matrix
 
 ![alt text](EW.png)
 | Performance Measure | Value (%) |
