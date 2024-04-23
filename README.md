@@ -48,8 +48,13 @@ $\mathbb{1}$: Identity Matrix
 | Sharpe Ratio | 0.35  |
 
 ## Equally Risk Based portfolio (ERB)
+The $\Lambda$ matrix has been calculated with the whole price dataset. The weights thus obtained have then been tested on the whole historical data.
 
+\noindent The $\Lambda^{-1}$ matrix is of diagonal structure. For each stock, the inverse of the standard deviation is present on the diagonal. It is then normalized by being divided by the sum for all stocks of the inverse standard deviation. This portfolio aims to reduce risk by penalizing standard deviation : the higher the standard deviation, the lower the weight used in the portfolio.
 
+$\Large w_{ERB}=\frac{\Lambda^{-1}\textbf{1}}{\textbf{1}^t \Lambda^{-1} \textbf{1}}$
+
+![alt text](ERB.png)
 
 ```ruby
 
