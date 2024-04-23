@@ -19,6 +19,7 @@ process: get Market weights and corresponding stockprices for the benchmark-> do
 ### Lehman brothers and Covid crisis as top two Max drawdowns with a yearly sliding window over 21 years
 ![alt text](Max Drawdown.png)
 
+
 ```ruby
 
 ```
