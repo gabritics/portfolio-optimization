@@ -28,6 +28,12 @@ process: get Market weights and corresponding stockprices for the benchmark-> do
 | Max Drawdown | -1.7  |
 | Sharpe Ratio | 0.48  |
 
+### Risk Based Strategies
+## Equally Weighted Portfolio (EW)
+This portfolio is calculated every trading day. It will assign the same weight to all the stocks currently available that day. It is the most rudimentary of the risk-based approaches. It aims to spread the risk out among as many stocks as possible without going into complex and costly variance analysis.
+
+$w_{EW}= \frac{\mathbbold{1} \textbf{1}}{\textbf{1}^t \mathbbold{1} \textbf{1}}$
+
 ```ruby
 
 ```
