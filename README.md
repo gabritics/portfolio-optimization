@@ -171,8 +171,21 @@ The Markowitz optimization problem can be formulated as follows:
 
 ![alt text](optpro.JPG)
 
+where $w$ is the vector of portfolio weights, $\mu$ is the vector of expected asset returns, $\Sigma$ is the covariance matrix of asset returns, and $\lambda$ is the risk aversion parameter. The first constraint ensures that the sum of the portfolio weights is equal to one, and the second constraint ensures that the weights are non-negative and do not exceed one.
 
+We applied the Markowitz optimization to our portfolio of stocks using the historical returns as inputs. We computed our covariance matrix using the price data of the last 500 days and we computed our expected returns using the returns data of the last 30 days. We then used the weights thus optimized for the next 30 days before starting the cycle all over again. We used a risk aversion parameter of $\lambda = 30$ and obtained the following results:
 
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 11.97  |
+| Annualized Volatility | 26.01|
+| Max Drawdown | -79.99  |
+| Max Drawdown | -2.28  |
+| Sharpe Ratio | 0.46 |
+
+We find that the returns of the MVO portfolio are nearly 3\% higher than those of the SPX index (the market). In exchange for these higher returns, the volatility of the MVO portfolio soars to 26.01\% of annualized volatility, compared to 18.6\% for the market. This tradeoff seems to be justified as the Sharpe ratio only slightly drops from 0.48 for the market to 0.46 for the MVO. This means we have successfully built an alternative investment to the market with potentially higher returns that compensate the increased risk. This is suitable for less risk adverse investors.
+
+![alt text](eff_front.JPG)
 
 ```ruby
 
