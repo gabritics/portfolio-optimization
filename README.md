@@ -53,6 +53,7 @@ The $\Lambda$ matrix has been calculated with the whole price dataset. The weigh
 $\Large w_{ERB}=\frac{\Lambda^{-1}\textbf{1}}{\textbf{1}^t \Lambda^{-1} \textbf{1}}$
 
 $\Lambda$: Diagonal matrix with standard deviation on the diagonal
+
 ![alt text](ERB.png)
 
 | Performance Measure | Value (%) |
@@ -69,6 +70,15 @@ The weights thus obtained have then been tested on the whole historical data. No
 $\Large w_{IV}=\frac{(\Lambda^2)^{-1}\textbf{1}}{\textbf{1}^t (\Lambda^2)^{-1} \textbf{1}}$
 
 ![alt text](IV.png)
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 5.47  |
+| Annualized Volatility | 13.36|
+| Max Drawdown | -44.90  |
+| Max Drawdown | -1.21  |
+| Sharpe Ratio | 0.41  |
+
 
 ```ruby
 
