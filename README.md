@@ -79,6 +79,93 @@ $\Large w_{IV}=\frac{(\Lambda^2)^{-1}\textbf{1}}{\textbf{1}^t (\Lambda^2)^{-1} \
 | Max Drawdown | -1.21  |
 | Sharpe Ratio | 0.41  |
 
+### Risk Based strategies (Backtesting, equidistant weight updates)
+To ground ourselves in a more realistic setting, at any given date we will limit our portfolio construction algorithms to the data available at that date. The idea of the backtest is to use data from let's say the previous two years to build a portfolio that we can use for the next let's say 5 days and then start again. These are the two main variables of the code : the number of previous days of data we use to construct our portfolios and the number days on which project our strategy. For instance, we can calculate our weights based on the last 400 days and then use the portfolio for the next 20 days before recalculating the weights and so on.
+
+In our code, we have called this process a "Sliding portfolio strategy" because we only use data from a set number of days away. For instance, we say we will use the data from the previous T days. That means at date $t_1$ we will use the data included in [$t_1 - T$, $t_1$] and at date $t_2$  we will use the data included in [$t_2 - T$, $t_2$].
+
+The Equally Weighted portfolio is not going to change from the previous code because it is calculated for each trading day as it is the simplest portfolio we have implemented. It doesn't use any data from the past. 
+
+For both the Backtested ERB and Backtested IV portfolios, the $\Lambda$ matrix will now be calculated for the past 500 days of data and the portfolio thus calculated will be used for 15 days before the  $\Lambda$ matrix is calculated again with the past 500 days and so on.
+
+$\textbf{Backtested Equally Risk Based Portfolio (BERB)}$
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 6.53  |
+| Annualized Volatility | 22.16|
+| Max Drawdown | -72.69  |
+| Max Drawdown | -2.02  |
+| Sharpe Ratio | 0.29 |
+
+As we could expect, the BERB is far less successful than the ERB portfolio. It's returns rise from 6.32\% to 6.53\%, however the risk also rises (from 18.06\% annualized volatility with the ERB to 22.16\% with the BERB).  This leads to a strong decline in the Sharpe ratio from 0.35 to 0.29. The ERB should be a risk adverse portfolio so this rise in volatility that fails to be compensated by an equal rise in returns, thus leading to a fall of the Sharpe ratio, is not welcome. This poorer performance can be explained by the way we have built both the BERB and the ERB portfolios : the ERB $\Lambda$ matrix uses the data of 5305 trading days, but the BERB one only uses 500 trading days. This increase in data availability leads to a more efficient portfolio.
+
+As we can see, the annualized volatility of the BERB portfolio is higher than that of the SPX index, which has an annualized volatility of 18.6\%. It fails in what it was designed to do : lower volatility. It gives us higher volatility for less returns. Any investor is better off with our SPX index.
+
+$\textbf{Backtested Inverse-variance portfolio (BIV)}$
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 5.96  |
+| Annualized Volatility | 20.94|
+| Max Drawdown | -70.40  |
+| Max Drawdown | -1.88  |
+| Sharpe Ratio | 0.28 |
+
+As in the previous case, the BIV is far less successful than the BIV portfolio. It's returns rise from 5.47\% to 5.96\%, however the risk also rises (from 13.36\% annualized volatility with the IV to 20.94\% with the BIV).  This leads to a significant drop in the Sharpe ratio from 0.41 to 0.28. Just as previously, the IV should be a risk adverse portfolio so this rise in volatility that fails to be compensated by an equal rise in returns, thus leading to a fall of the Sharpe ratio, is not welcome. Just like in the previous case, this poorer performance can be explained by the way we have built both the BIV and the IV portfolios : the IV $\Lambda$ matrix uses the data of 5305 trading days, but the BIV one only uses 500 trading days. This increase in data availability leads to a more efficient portfolio.
+
+As we can see, the annualized volatility of the BIV portfolio is higher than that of the SPX index, which has an annualized volatility of 18.6\%. Just like previously, it fails in what it was designed to do : lower volatility. It gives us higher volatility for less returns. Any investor is better off with our SPX index.
+
+$\textbf{Value of BERB and BIV portfolios over time}$
+
+![alt text](BERBvsBIV.png)
+
+$\textbf{Backtested minimum variance portfolio (BMV)}$
+We will now introduce a new risk-based portfolio : the minimum variance portfolio. As the name suggests, the aim of the portfolio is to compute the weights in such a way that the variance of the whole portfolio is minimized. In the ERB and IV portfolios, we did not look at the relationship between the stocks, we only looked at each stocks individual volatility. In order to minimize the volatility of the portfolio, the weights will be computed with the covariance between each pair of stocks taken into account. The $\Sigma$ matrix used for the computation is the standard covariance matrix of all the stocks used in the computation. In this backtest, the covariances and variances were computed over the last 400 days of data. The weights were then used for the next 20 days and so on. For a stock to be used in the computation, its price over the last 400 days of data at the time of the 
+
+$\Large w_{BMV} = \frac{\Sigma^{-1} \textbf{1}}{\textbf{1}^t \Sigma^{-1} \textbf{1}}$
+
+$\Sigma$: Covariance Matrix
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 6.47  |
+| Annualized Volatility | 15.79|
+| Max Drawdown | -46.01  |
+| Max Drawdown | -1.43  |
+| Sharpe Ratio | 0.41 |
+
+Contrary to the BERB and BIV portfolios, the BMV one keeps a Sharpe ratio well above 0.30 (it is at 0.41) whilst also keeping a low volatility (from 22.16\% annualized volatility for the BERB and 20.94\% for the BIV to 15.79\% annualized volatility for the BMV). This shows us that in a real world situation, in order to minimize risk it is crucial to take the relationship between the different stocks into account. Contrary to both the BIV and the BERB, it is the only portfolio that has an annualized volatility under that of the SPX index (18.6\% annualized volatility for the SPX index). It is the only good choice for a risk adverse investor among the three portfolios.
+
+![alt text](BMV.png)
+
+## Top Performance Portfolio, using Double filtration
+
+We will now introduce a new  portfolio : the Top Performers portfolio. It will take a certain number of stocks who have the highest average returns over a given period of time. Then, out of those highest returns stocks, it will only keep a certain number of ones with the lowest volatility over that same period of time. We could have called this portfolio the "Double Filtration" portfolio. In the "first filtration", we only keep the stocks with the highest returns and in the second filtration, out of the previous filtered stocks, we only keep those with the lowest volatility. It has two crucial parameters : the number of stocks we keep after the first filtration and the number of stocks we keep after the second filtration. 
+
+For example, the data below originates from the following parameters : 
+
+1) We keep the first 300 stocks with the highest average returns over the last 400 days.
+
+2) Out of those 300 previous stocks, we only keep the first 80 stocks with the lowest average volatility over the last 400 days.
+
+3) We use an equally weighted strategy on the remaining 80 stocks and use them for 20 days.
+
+| Performance Measure | Value (%) |
+| ------------- | ------------- |
+| Annualized Return | 7.04  |
+| Annualized Volatility | 12.70|
+| Max Drawdown | -33.21  |
+| Max Drawdown | -1.23  |
+| Sharpe Ratio | 0.56 |
+
+$\textbf{Top Performer vs. Market}$
+
+![alt text](TPvsMarket.png)
+
+
+
+
 
 ```ruby
 
