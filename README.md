@@ -169,11 +169,7 @@ The Markowitz optimization, also known as mean variance optimization, is a portf
 
 The Markowitz optimization problem can be formulated as follows:
 
-\begin{center}
-$\underset{w}{\text{maximize}} & & \mu^T w - \frac{\lambda}{2} w^T \Sigma w \\
-& \text{subject to} & & \sum_{i=1}^{n} w_i = 1, \\
-& & & 0 \leq w_i \leq 1, \quad i = 1, \ldots, n,$
-\end{center}
+![alt text](optpro.png)
 
 
 
