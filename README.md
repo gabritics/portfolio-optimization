@@ -165,7 +165,17 @@ $\textbf{Top Performer vs. Market}$
 
 ## Markowitz Optimization
 
+The Markowitz optimization, also known as mean variance optimization, is a portfolio optimization technique that aims to maximize the expected return of a portfolio while minimizing its risk. The risk is measured by the portfolio volatility, which is a function of the individual asset volatilities and their correlations. The Markowitz optimization is based on the modern portfolio theory (MPT), which assumes that investors are risk-averse and seek to maximize their expected return for a given level of risk.
 
+The Markowitz optimization problem can be formulated as follows:
+
+\begin{equation}
+\begin{aligned}
+& \underset{w}{\text{maximize}} & & \mu^T w - \frac{\lambda}{2} w^T \Sigma w \\
+& \text{subject to} & & \sum_{i=1}^{n} w_i = 1, \\
+& & & 0 \leq w_i \leq 1, \quad i = 1, \ldots, n,
+\end{aligned}
+\end{equation}
 
 
 
