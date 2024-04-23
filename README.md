@@ -1,6 +1,12 @@
 # portfolio-optimization
 Implemented and backtested a few risk-based strategies as well as a classical Markowitz risk-retrun strategy
 
+
+
+
+
+
+
 ### Description
 
 We compareed our backtests with the american market, for this we got market-weights, for the last approximately 21 years, for some stocks of the S&P500.
@@ -191,8 +197,7 @@ $\textbf{MVO vs. Market}$
 
 ![alt text](SlidingMVOvsMarket.png)
 
+##Summary
 
+![alt text](table.png)
 
-```ruby
-
-```
